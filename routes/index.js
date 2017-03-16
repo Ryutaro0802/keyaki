@@ -21,6 +21,7 @@ const rss = `
 </rss>
 `;
 
+
 fs.writeFile('public/rss.xml', rss);
 
 client.fetch(url, {}, (err, $, res) => {
