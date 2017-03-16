@@ -31,15 +31,17 @@ client.fetch(url, {}, (err, $, res) => {
     const date = articles[i].date = $(this).find('.box-date').eq(0).text() + $(this).find('.box-date').eq(1).text();
     const title = articles[i].title = $(this).find('.box-ttl h3').text();
     const name = articles[i].name = $(this).find('.box-ttl .name').text();
-
-    console.log(articles[i]);
+    // console.log(articles[i]);
   });
 });
 
+console.log('get');
+
 router.get('/', (req, res, next) => {
-  res.render('index', {
-    articles
-  });
+  // res.render('index', {
+  //   articles
+  // });
+  res.end('表示テスト');
 });
 
 module.exports = router;
