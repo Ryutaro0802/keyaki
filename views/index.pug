@@ -3,8 +3,8 @@ extends layout
 block content
   h1 keyakizaka
 
-  //- each article in  articles
-  //-   div
-  //-     p #{article.date}
-  //-     p #{article.title}
-  //-     p #{article.name}
+  each article in  articles
+    div
+      p #{article.date}
+      p #{article.title}
+      p #{article.name}

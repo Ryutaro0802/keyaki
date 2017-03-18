@@ -34,13 +34,8 @@ client.fetch(url, {}, (err, $, res) => {
   });
 });
 
-console.log('get');
-
 router.get('/', (req, res, next) => {
-  res.render('index', {
-    articles
-  });
-  res.write('表示テスト');
+  res.render('index', { articles });
 });
 
 module.exports = router;
