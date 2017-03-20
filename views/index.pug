@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  h1 keyakizaka
+  - var host = 'http://www.keyakizaka46.com/';
 
+  h1 keyakizaka
+  
   each article in  articles
     div
-      p #{article.date}
-      p #{article.title}
-      p #{article.name}
+      a(href=host + article.href)
+        p #{article.date}
+        p #{article.title}
+        p #{article.name}
+      img(src=article.imgSrc)
