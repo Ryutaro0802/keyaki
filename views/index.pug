@@ -3,12 +3,12 @@ extends layout
 block content
   - var host = 'http://www.keyakizaka46.com/';
 
-  h1 keyakizaka
+  h1 article
   
-  each article in  articles
-    div
-      a(href=host + article.href)
-        p #{article.date}
-        p #{article.title}
-        p #{article.name}
-      img(src=article.imgSrc)
+  //- each article in  articles
+  //-   div
+  //-     a(href=host + article.href)
+  //-       p #{article.date}
+  //-       p #{article.title}
+  //-       p #{article.name}
+  //-     img(src=article.imgSrc)
