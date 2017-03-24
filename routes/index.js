@@ -18,7 +18,7 @@ client.fetch(url, {}, (err, $, res) => {
     const href = articles[i].href = $(this).find('.box-ttl a').attr('href').replace(/&/g, '&amp;');
     const name = articles[i].name = $(this).find('.box-ttl .name').text();
     const imgSrc = articles[i].imgSrc = $(this).find('img').eq(0).attr('src');
-    const content = articles[i].content = $(this).find('.box-article').text().replace(/`/g, '\`').replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;');
+    const content = articles[i].content = $(this).find('.box-article').html().replace(/`/g, '\`').replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;');
 
     articleItems.push(`<entry>
         <id>id:${href}</id>
