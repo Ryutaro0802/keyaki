@@ -23,7 +23,7 @@ client.fetch(url, {}, (err, $, res) => {
     articleItems.push(`<entry>
         <id>id:${href}</id>
 		    <title>${title}</title>
-		    <link rel="alternate" type="text/html" href="${href}" />
+		    <link rel="alternate" type="text/html" href="http://www.keyakizaka46.com/${href}" />
 		    <updated>${date}</updated>
         <content type="xhtml" xml:lang="ja" xml:base="http://diveintomark.org/">${content}</content>
       </entry>`);
