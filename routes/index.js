@@ -5,7 +5,6 @@ const client = require('cheerio-httpcli');
 const url = 'http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000';
 const articles = [];
 const articleItems = [];
-const date = new Date();
 
 client.fetch(url, {}, (err, $, res) => {
   let article;
@@ -23,7 +22,7 @@ client.fetch(url, {}, (err, $, res) => {
     articleItems.push(`<entry>
         <id>id:${href}</id>
 		    <title>${title}</title>
-		    <link rel="alternate" type="text/html" href="http://www.keyakizaka46.com/${href}" />
+		    <link rel="alternate" type="text/html" href="http://www.keyakizaka46.com${href}" />
 		    <updated>${date}</updated>
         <content type="xhtml" xml:lang="ja" xml:base="http://diveintomark.org/">${content}</content>
       </entry>`);
@@ -33,11 +32,13 @@ client.fetch(url, {}, (err, $, res) => {
     article += elm;
   });
 
+
+  const now = new Date()
   const atom = `<?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns='http://www.w3.org/2005/Atom' xml:lang='ja'>
 	<id>tag:keyakizakafeed/</id>
 	<title>欅坂46ブログ更新情報</title>
-	<updated>${date}</updated>
+	<updated>${now}</updated>
 	<link rel='alternate' type='text/html' href='https://keyaki-blog.herokuapp.com/' />
 	<link rel='self' type='application/atom+xml' href='https://keyaki-blog.herokuapp.com/atom.xml' />
   ${article}
