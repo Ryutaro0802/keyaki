@@ -19,12 +19,12 @@ feedparser.on('readable', function () {
     }
 });
 
-feedparser.on('end', function () {
-    items.forEach(function (item) {
-        console.log(item.title, item.link, item.author);
+exports.feedReadEnd = new Promise((resolve, reject) => {
+    feedparser.on('end', function () {
+        return items;
+        items.forEach(function (item) {
+            console.log(item.title, item.link, item.author);
+        });
+        resolve();
     });
-
-    return items
-
-    module.exports.items = items;
 });
