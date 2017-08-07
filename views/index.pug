@@ -1,14 +1,6 @@
-extends layout
+p サイトトップ
 
-block content
-  - var host = 'http://www.keyakizaka46.com/';
-
-  h1 Keyaki Blog
+ul
+  li: a(href="/article-list/nogizaka") 乃木坂46
+  li: a(href="/article-list/keyakizaka") 欅坂46
   
-  each article in  articles
-    div
-      a(href=host + article.href)
-        p #{article.date}
-        p #{article.title}
-        p #{article.name}
-      img(src=article.imgSrc)

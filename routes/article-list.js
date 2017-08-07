@@ -1,17 +1,31 @@
 
 const express = require('express');
 const router = express.Router();
-const readFeed = require('../model/nogizaka/all');
+const loadFeed = require('./load-feed');
 
 // readFeed.feedReadEnd.then(() => console.log('end'));
-readFeed.feedReadEnd.then();
 
 router.get('/keyakizaka', (req, res, next) => {
-  res.render('article-list', { name: '欅坂46' });
+  loadFeed.feedReadEnd.then((items) => {
+    res.render('article-list', { name: '欅坂46' });
+  }).catch((error) => {
+    console.error(error);
+  });
 });
 
 router.get('/nogizaka', (req, res, next) => {
-  res.render('article-list', { name: '乃木坂46' });
+  loadFeed.feedReadEnd.then((items) => {
+    const articles = [];
+    items.forEach(function (item) {
+      articles.push({
+        title: item.title, date: item.date, author: item.author, link: item.link
+      });
+    });
+
+    res.render('article-list', { articles: articles });
+  }).catch((error) => {
+    console.error(error);
+  });
 });
 
 module.exports = router;

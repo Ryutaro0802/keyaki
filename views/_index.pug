@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  - var host = 'http://www.keyakizaka46.com/';
+
+  h1 Keyaki Blog
+  
+  each article in  articles
+    div
+      a(href=host + article.href)
+        p #{article.date}
+        p #{article.title}
+        p #{article.name}
+      img(src=article.imgSrc)

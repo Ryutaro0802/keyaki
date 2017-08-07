@@ -4,3 +4,8 @@ block content
   - var host = 'http://www.keyakizaka46.com/';
 
   h1 #{name}
+
+  ul
+    each article in articles
+      //- li: a(href=${article.link}) #{article.title}
+      li: a(href=article.link) #{article.title} #{article.author}
